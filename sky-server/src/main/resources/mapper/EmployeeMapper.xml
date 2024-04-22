@@ -33,13 +33,13 @@
                 sex = #{sex},
             </if>
             <if test="idNumber != null">
-                id_Number = #{idNumber},
+                id_number = #{idNumber},
             </if>
             <if test="updateTime != null">
-                update_Time = #{updateTime},
+                update_time = #{updateTime},
             </if>
             <if test="updateUser != null">
-                update_User = #{updateUser}
+                update_user = #{updateUser}
             </if>
             <if test="status != null">
                 status = #{status},
