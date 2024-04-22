@@ -1,10 +1,14 @@
 package com.sky.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.sky.constant.StatusConstant;
 import com.sky.context.BaseContext;
 import com.sky.dto.CategoryDTO;
+import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
 import com.sky.mapper.CategoryMapper;
+import com.sky.result.PageResult;
 import com.sky.service.CategoryService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +40,18 @@ public class CategoryServiceImpl implements CategoryService {
 
         categoryMapper.insert(category);
 
+
+
+    }
+
+    @Override
+    public PageResult pageQuery(CategoryPageQueryDTO categoryPageQueryDTO) {
+        //启动pagehelper插件 传入当前页码和每页记录数
+        PageHelper.startPage(categoryPageQueryDTO.getPage(),categoryPageQueryDTO.getPageSize());
+
+        Page<Category> page = categoryMapper.pageQuery(categoryPageQueryDTO);
+        //返回总记录数和查询结果
+        return new PageResult(page.getTotal(),page.getResult());
 
 
     }
