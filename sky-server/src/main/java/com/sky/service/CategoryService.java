@@ -19,4 +19,6 @@ public interface CategoryService {
      * @return
      */
     PageResult pageQuery(CategoryPageQueryDTO categoryPageQueryDTO);
+
+    void deleteById(Long id);
 }
