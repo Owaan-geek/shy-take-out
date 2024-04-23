@@ -6,6 +6,7 @@ import com.sky.entity.Category;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface CategoryMapper {
@@ -31,6 +32,10 @@ public interface CategoryMapper {
     @Delete("delete from sky_take_out.category where id = #{id}")
     void delete(Long id);
 
-
+    /**
+     * 修改分类
+     * @param category
+     */
     void update(Category category);
+
 }
