@@ -30,4 +30,7 @@ public interface CategoryMapper {
      */
     @Delete("delete from sky_take_out.category where id = #{id}")
     void delete(Long id);
+
+
+    void update(Category category);
 }
