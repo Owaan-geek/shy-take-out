@@ -13,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @Slf4j
@@ -76,6 +78,13 @@ public class CategoryController {
         return Result.success();
     }
 
+    @GetMapping("/list")
+    @ApiOperation("根据类型查询分类")
+    public Result<List<Category>> list(Integer type){
+        log.info("根据类型查询分类，类型：{}",type);
 
+        List<Category> list = categoryService.list(type);
+        return Result.success(list);
+     }
 
 }
