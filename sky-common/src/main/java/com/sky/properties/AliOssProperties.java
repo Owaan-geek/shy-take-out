@@ -4,6 +4,9 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/**
+ * 读取配置信息 封装成java类
+ */
 @Component
 @ConfigurationProperties(prefix = "sky.alioss")
 @Data
