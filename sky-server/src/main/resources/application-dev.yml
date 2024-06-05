@@ -11,3 +11,6 @@ sky:
     access-key-id: LTAI5tGrtpWz8cwJnr2vrDm9
     access-key-secret: WnGupK1qpMSingMlNInodISM7TN3qH
     bucket-name: web-tlias-testwang
+  redis:
+    host: localhost
+    port: 6379
