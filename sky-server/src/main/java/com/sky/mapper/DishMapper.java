@@ -66,6 +66,18 @@ public interface DishMapper {
     @AutoFill(value = OperationType.UPDATE)
     void update(Dish dish);
 
-    @Select("select * from sky_take_out.dish where category_id = #{categoryId};")
-    List<Dish> getByCategoryId(Long categoryId);
+    /**
+     * 根据分类id查询起售菜品
+     * @param dish
+     * @return
+     */
+    List<Dish> getByCategoryId(Dish dish);
+
+    /**
+     * 根据套餐id查询菜品
+     * @param id
+     * @return
+     */
+    @Select("select d.* from sky_take_out.dish d left join sky_take_out.setmeal_dish s on d.id = s.dish_id where s.setmeal_id = #{id}")
+    List<Dish> getBySetmealId(Long id);
 }
